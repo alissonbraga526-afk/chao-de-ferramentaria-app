@@ -1,1 +1,34 @@
-Substitua no GitHub os arquivos index.html, style.css, app.js, manifest.webmanifest e service-worker.js. Mantenha a pasta icons. Depois faça Commit changes. O GitHub Pages atualizará automaticamente.
+CHÃO DE FERRAMENTARIA V3 — PAINEL ADMINISTRATIVO
+
+O QUE ESTA VERSÃO FAZ
+- Conteúdo técnico atualizado pelo painel
+- Eventos e feiras atualizados pelo painel
+- Episódios atualizados pelo painel
+- Parceiros atualizados pelo painel
+- Todos os usuários veem as atualizações automaticamente
+
+PASSO 1 — CRIAR SUPABASE GRÁTIS
+1. Crie uma conta no Supabase.
+2. Crie um projeto.
+3. Abra SQL Editor.
+4. Cole o conteúdo do arquivo SUPABASE-SETUP.sql e execute.
+5. Vá em Project Settings > API.
+6. Copie Project URL e anon/public key.
+
+PASSO 2 — CONFIGURAR O APP
+1. Abra config.js.
+2. Troque COLE_AQUI_SUA_SUPABASE_URL pela Project URL.
+3. Troque COLE_AQUI_SUA_ANON_KEY pela anon/public key.
+4. Troque a senha ADMIN_PASSWORD por uma senha sua.
+
+PASSO 3 — ATUALIZAR O GITHUB
+Substitua os arquivos do repositório pelos arquivos desta versão.
+Depois faça Commit changes.
+
+PAINEL
+Abra:
+SEU-ENDERECO-GITHUB-PAGES/admin.html
+
+IMPORTANTE
+Esta primeira versão usa uma senha simples no navegador e políticas temporárias no Supabase.
+Ela é boa para começar/testar, mas para uso público profissional recomendo uma próxima versão com login real via Supabase Auth.
