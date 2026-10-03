@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b5da8">
+  <meta name="description" content="App Chão de Ferramentaria">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Chão de Ferramentaria</title>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="brand">CHÃO DE <span>FERRAMENTARIA</span></div>
+      <small>Conhecimento para quem vive a indústria</small>
+    </div>
+    <button id="installBtn" class="install" hidden>Instalar</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="pill">APP OFICIAL</div>
+      <h1>Ferramentaria na palma da mão.</h1>
+      <p>Conteúdo técnico, entrevistas, parceiros, oportunidades e conexões da indústria em um só lugar.</p>
+    </section>
+
+    <section class="quick-grid">
+      <button class="quick" data-target="episodios">🎙️<span>Episódios</span></button>
+      <button class="quick" data-target="tecnico">⚙️<span>Técnico</span></button>
+      <button class="quick" data-target="parceiros">🤝<span>Parceiros</span></button>
+      <button class="quick" data-target="vagas">💼<span>Vagas</span></button>
+    </section>
+
+    <section id="episodios" class="section">
+      <div class="section-head">
+        <h2>Últimos episódios</h2>
+        <span class="tag">Podcast</span>
+      </div>
+      <article class="card">
+        <h3>Entrevistas com quem vive a indústria</h3>
+        <p>Use esta área para divulgar novos episódios, convidados e temas.</p>
+        <a href="#" class="link">Adicionar link do Spotify →</a>
+      </article>
+    </section>
+
+    <section id="tecnico" class="section">
+      <div class="section-head">
+        <h2>Conteúdo técnico</h2>
+        <span class="tag">Conhecimento</span>
+      </div>
+      <div class="cards">
+        <article class="card"><h3>Moldes e ferramentais</h3><p>Processos, ajustes, manutenção e boas práticas.</p></article>
+        <article class="card"><h3>CAM e usinagem</h3><p>Tecnologia, programação e produtividade.</p></article>
+        <article class="card"><h3>Componentes</h3><p>Soluções e aplicações para moldes e dispositivos.</p></article>
+      </div>
+    </section>
+
+    <section id="parceiros" class="section">
+      <div class="section-head">
+        <h2>Parceiros</h2>
+        <span class="tag">Indústria</span>
+      </div>
+      <article class="card partner-card">
+        <h3>Sua empresa pode estar aqui</h3>
+        <p>Espaço para apoiadores, fornecedores e empresas parceiras do Chão de Ferramentaria.</p>
+        <a href="#contato" class="primary-btn">Quero ser parceiro</a>
+      </article>
+    </section>
+
+    <section id="vagas" class="section">
+      <div class="section-head">
+        <h2>Oportunidades</h2>
+        <span class="tag">Carreira</span>
+      </div>
+      <article class="card">
+        <h3>Vagas da ferramentaria</h3>
+        <p>Área preparada para divulgar oportunidades de matrizeiro, ferramenteiro, projetista, CNC, EDM e áreas relacionadas.</p>
+      </article>
+    </section>
+
+    <section id="contato" class="section contact">
+      <h2>Conecte-se com o Chão de Ferramentaria</h2>
+      <div class="actions">
+        <a class="primary-btn" href="https://www.instagram.com/chaodeferramentaria" target="_blank">Instagram</a>
+        <a class="secondary-btn" href="mailto:SEUEMAIL@EXEMPLO.COM">E-mail</a>
+      </div>
+      <p class="hint">Troque o e-mail de exemplo pelo seu contato oficial antes de publicar.</p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="#episodios">🎙️<span>Podcast</span></a>
+    <a href="#tecnico">⚙️<span>Técnico</span></a>
+    <a href="#parceiros">🤝<span>Parceiros</span></a>
+    <a href="#vagas">💼<span>Vagas</span></a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
