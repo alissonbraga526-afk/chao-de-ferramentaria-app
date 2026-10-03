@@ -1,68 +1,20 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0b5da8">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="style.css">
-  <title>Chão de Ferramentaria</title>
-</head>
-<body>
-<header class="topbar">
-  <div>
-    <div class="brand">CHÃO DE <span>FERRAMENTARIA</span></div>
-    <small>Conhecimento para quem vive a indústria</small>
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <span class="pill">APP OFICIAL</span>
-    <h1>Ferramentaria na palma da mão.</h1>
-    <p>Conteúdo técnico, eventos, episódios e parceiros atualizados diretamente pelo app.</p>
-  </section>
-
-  <section class="quick-grid">
-    <button class="quick" data-target="tecnico">⚙️<span>Técnico</span></button>
-    <button class="quick" data-target="eventos">📅<span>Eventos</span></button>
-    <button class="quick" data-target="episodios">🎙️<span>Episódios</span></button>
-    <button class="quick" data-target="parceiros">🤝<span>Parceiros</span></button>
-  </section>
-
-  <section id="tecnico" class="section">
-    <div class="section-head"><h2>Parte técnica</h2><span class="tag">Conhecimento</span></div>
-    <div id="tecnico-list" class="cards"><div class="card"><p>Carregando conteúdos...</p></div></div>
-  </section>
-
-  <section id="eventos" class="section">
-    <div class="section-head"><h2>Eventos e feiras</h2><span class="tag">Agenda</span></div>
-    <div id="eventos-list" class="cards"><div class="card"><p>Carregando eventos...</p></div></div>
-  </section>
-
-  <section id="episodios" class="section">
-    <div class="section-head"><h2>Episódios</h2><span class="tag">Podcast</span></div>
-    <div id="episodios-list" class="cards"><div class="card"><p>Carregando episódios...</p></div></div>
-  </section>
-
-  <section id="parceiros" class="section">
-    <div class="section-head"><h2>Parceiros</h2><span class="tag">Indústria</span></div>
-    <div id="parceiros-list" class="cards"><div class="card"><p>Carregando parceiros...</p></div></div>
-  </section>
-
-  <section class="section">
-    <a class="admin-link" href="admin.html">Área administrativa</a>
-  </section>
-</main>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b5da8"><link rel="stylesheet" href="style.css"><link rel="manifest" href="manifest.webmanifest"><title>Chão de Ferramentaria</title></head><body>
+<header class="topbar"><div class="brand">CHÃO DE <span>FERRAMENTARIA</span></div><small>Conhecimento para quem vive a indústria</small></header>
+<section class="hero"><span class="pill">APP OFICIAL</span><h1>Ferramentaria na palma da mão.</h1><p>Conteúdo técnico, entrevistas, parceiros, eventos e conexões da indústria em um só lugar.</p></section>
+<section class="quick-grid">
+<a class="quick" href="tecnico.html">⚙️<span>Conteúdo técnico</span></a>
+<a class="quick" href="eventos.html">📅<span>Eventos e feiras</span></a>
+<a class="quick" href="episodios.html">🎙️<span>Episódios</span></a>
+<a class="quick" href="parceiros.html">🤝<span>Parceiros</span></a>
+</section>
+<div id="home-latest"></div>
+<section class="section"><div class="card"><h3>Painel administrativo</h3><p>Área reservada para atualização do conteúdo.</p><a class="btn btn-secondary" href="admin.html">Entrar no painel</a></div></section>
 
 <nav class="bottom-nav">
-  <a href="#tecnico">⚙️<span>Técnico</span></a>
-  <a href="#eventos">📅<span>Eventos</span></a>
-  <a href="#episodios">🎙️<span>Podcast</span></a>
-  <a href="#parceiros">🤝<span>Parceiros</span></a>
+  <a href="tecnico.html"><div>⚙️</div><span>Técnico</span></a>
+  <a href="eventos.html"><div>📅</div><span>Eventos</span></a>
+  <a href="episodios.html"><div>🎙️</div><span>Podcast</span></a>
+  <a href="parceiros.html"><div>🤝</div><span>Parceiros</span></a>
 </nav>
 
-<script src="config.js"></script>
-<script src="app.js"></script>
-</body>
-</html>
+<script src="config.js"></script><script src="app.js"></script></body></html>

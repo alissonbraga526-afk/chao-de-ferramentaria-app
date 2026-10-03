@@ -1,0 +1,29 @@
+CHÃO DE FERRAMENTARIA V5 — PÁGINAS PRÓPRIAS
+
+NOVIDADES
+- Técnico abre tecnico.html
+- Eventos abre eventos.html
+- Podcast abre episodios.html
+- Parceiros abre parceiros.html
+- Home mostra o conteúdo mais recente de cada área
+- Todas as páginas puxam dados do Supabase automaticamente
+- Mantém o painel administrativo existente
+
+SUBSTITUA/ENVIE NO GITHUB:
+- index.html
+- app.js
+- style.css
+- manifest.webmanifest
+- service-worker.js
+- tecnico.html
+- eventos.html
+- episodios.html
+- parceiros.html
+
+NÃO SUBSTITUA:
+- config.js
+- admin.html
+- admin.js
+- pasta icons
+
+Depois faça Commit changes e aguarde o GitHub Pages atualizar.
