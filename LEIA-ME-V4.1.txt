@@ -1,0 +1,16 @@
+CHÃO DE FERRAMENTARIA V4.1 — CORREÇÃO MOBILE
+
+Substitua no GitHub somente:
+- admin.html
+- style.css
+
+Mantenha:
+- admin.js da V4
+- config.js atual
+- service-worker.js da V4
+
+Depois faça Commit changes e aguarde 2 a 5 minutos.
+Abra novamente:
+https://alissonbraga526-afk.github.io/chao-de-ferramentaria-app/admin.html
+
+Se o visual antigo continuar, atualize a página ou feche e abra o app.

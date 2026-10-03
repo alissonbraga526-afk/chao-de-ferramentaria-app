@@ -1,5 +1,83 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="style.css"><title>Admin | Chão de Ferramentaria</title></head><body>
-<header class="topbar"><div class="brand">CHÃO DE <span>FERRAMENTARIA</span></div><small>Painel administrativo seguro</small></header>
-<main id="loginView" class="section"><div class="card"><h1>Entrar no painel</h1><form id="loginForm"><label>E-mail<input id="email" type="email" required></label><label>Senha<input id="password" type="password" required></label><button class="primary-btn" type="submit">Entrar</button><p id="loginStatus" class="muted"></p></form></div></main>
-<main id="adminView" class="admin-main" style="display:none"><section class="section"><div class="section-head"><h1>Painel administrativo</h1><button id="logoutBtn" class="secondary-btn">Sair</button></div><div class="admin-tabs"><button class="tab active" data-type="tecnico">Técnico</button><button class="tab" data-type="eventos">Eventos</button><button class="tab" data-type="episodios">Episódios</button><button class="tab" data-type="parceiros">Parceiros</button></div><form id="contentForm" class="card form-card"><label>Título<input id="titulo" required></label><label>Descrição<textarea id="descricao" rows="5" required></textarea></label><label>Link opcional<input id="link" type="url"></label><label>Data opcional<input id="data" type="date"></label><button class="primary-btn" type="submit">Publicar</button><p id="status" class="muted"></p></form></section><section class="section"><h2>Conteúdos publicados</h2><div id="admin-list" class="cards"></div></section></main>
-<script src="config.js"></script><script src="admin.js"></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b5da8">
+  <link rel="stylesheet" href="style.css">
+  <title>Admin | Chão de Ferramentaria</title>
+</head>
+<body>
+<header class="topbar admin-topbar">
+  <div>
+    <div class="brand">CHÃO DE <span>FERRAMENTARIA</span></div>
+    <small>Painel administrativo seguro</small>
+  </div>
+</header>
+
+<main id="loginView" class="admin-shell">
+  <section class="admin-card">
+    <h1>Entrar no painel</h1>
+    <p class="muted">Use o e-mail e a senha cadastrados no Supabase.</p>
+    <form id="loginForm" class="admin-form">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" autocomplete="username" required>
+      <label for="password">Senha</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <button class="primary-btn full" type="submit">Entrar</button>
+      <p id="loginStatus" class="muted"></p>
+    </form>
+  </section>
+</main>
+
+<main id="adminView" class="admin-shell" style="display:none">
+  <section class="admin-header-card">
+    <div>
+      <h1>Painel administrativo</h1>
+      <p class="muted">Atualize o conteúdo do app pelo celular.</p>
+    </div>
+    <button id="logoutBtn" class="secondary-btn compact" type="button">Sair</button>
+  </section>
+
+  <section class="admin-tabs-wrap">
+    <div class="admin-tabs">
+      <button class="tab active" data-type="tecnico">Técnico</button>
+      <button class="tab" data-type="eventos">Eventos</button>
+      <button class="tab" data-type="episodios">Episódios</button>
+      <button class="tab" data-type="parceiros">Parceiros</button>
+    </div>
+  </section>
+
+  <section class="admin-card">
+    <form id="contentForm" class="admin-form">
+      <label for="titulo">Título</label>
+      <input id="titulo" required maxlength="120" placeholder="Ex.: Ajuste de molde de injeção">
+
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" rows="6" required placeholder="Escreva o conteúdo ou resumo"></textarea>
+
+      <label for="link">Link opcional</label>
+      <input id="link" type="url" placeholder="https://...">
+
+      <label for="data">Data opcional</label>
+      <input id="data" type="date">
+
+      <button class="primary-btn full" type="submit">Publicar</button>
+      <p id="status" class="muted"></p>
+    </form>
+  </section>
+
+  <section class="published-section">
+    <h2>Conteúdos publicados</h2>
+    <div id="admin-list" class="cards"></div>
+  </section>
+
+  <section class="admin-footer-actions">
+    <a class="secondary-btn full center" href="index.html">Voltar ao app</a>
+  </section>
+</main>
+
+<script src="config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
