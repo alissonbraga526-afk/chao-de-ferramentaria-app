@@ -1,0 +1,35 @@
+CHÃO DE FERRAMENTARIA V6
+
+NOVO:
+- Área Empresas
+- Área Vagas
+- Destaque de patrocinador na página inicial
+- Painel administrativo com abas Empresas e Vagas
+- Mantém Técnico, Eventos, Episódios e Parceiros
+- Mantém login seguro Supabase
+
+PASSO 1 — SUPABASE
+Abra o SQL Editor e execute o arquivo V6-SUPABASE.sql.
+
+PASSO 2 — GITHUB
+Substitua/envie:
+index.html
+app.js
+style.css
+manifest.webmanifest
+service-worker.js
+admin.html
+admin.js
+tecnico.html
+eventos.html
+episodios.html
+parceiros.html
+empresas.html
+vagas.html
+
+NÃO SUBSTITUA:
+config.js
+pasta icons
+
+PASSO 3
+Faça Commit changes e aguarde o GitHub Pages atualizar.
