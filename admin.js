@@ -1,78 +1,14 @@
-const apiHeaders = () => ({
-  "apikey": SUPABASE_ANON_KEY,
-  "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-  "Content-Type": "application/json",
-  "Prefer": "return=representation"
-});
-
-const entered = prompt("Senha do painel administrativo:");
-if (entered !== ADMIN_PASSWORD) {
-  document.body.innerHTML = '<main class="section"><div class="card"><h2>Acesso negado</h2><p>Senha incorreta.</p><a class="secondary-btn" href="index.html">Voltar</a></div></main>';
-  throw new Error("Senha incorreta");
-}
-
-let currentType = "tecnico";
-const form = document.getElementById("contentForm");
-const statusEl = document.getElementById("status");
-
-document.querySelectorAll(".tab").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    currentType = btn.dataset.type;
-    document.getElementById("tipo").value = currentType;
-    loadAdmin();
-  });
-});
-
-form.addEventListener("submit", async (e)=>{
-  e.preventDefault();
-  if (SUPABASE_URL.includes("COLE_AQUI")) {
-    statusEl.textContent = "Configure o Supabase em config.js antes de publicar.";
-    return;
-  }
-  const payload = {
-    tipo: currentType,
-    titulo: document.getElementById("titulo").value.trim(),
-    descricao: document.getElementById("descricao").value.trim(),
-    link: document.getElementById("link").value.trim() || null,
-    data_evento: document.getElementById("data").value || null
-  };
-  statusEl.textContent = "Publicando...";
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/conteudos`, {
-    method:"POST", headers:apiHeaders(), body:JSON.stringify(payload)
-  });
-  if (res.ok) {
-    form.reset();
-    document.getElementById("tipo").value = currentType;
-    statusEl.textContent = "Publicado com sucesso.";
-    loadAdmin();
-  } else {
-    statusEl.textContent = "Erro ao publicar. Verifique a configuração.";
-  }
-});
-
-async function loadAdmin(){
-  const el=document.getElementById("admin-list");
-  if (SUPABASE_URL.includes("COLE_AQUI")) {
-    el.innerHTML='<div class="card"><p>Configure o Supabase em config.js.</p></div>';
-    return;
-  }
-  const res=await fetch(`${SUPABASE_URL}/rest/v1/conteudos?tipo=eq.${currentType}&select=*&order=created_at.desc`,{headers:apiHeaders()});
-  const data=await res.json();
-  el.innerHTML=data.map(item=>`
-    <article class="card">
-      <h3>${escapeHtml(item.titulo)}</h3>
-      <p>${escapeHtml(item.descricao)}</p>
-      <button class="danger-btn" onclick="removeItem('${item.id}')">Excluir</button>
-    </article>`).join("") || '<div class="card"><p>Nenhum item publicado.</p></div>';
-}
-
-async function removeItem(id){
-  if(!confirm("Excluir este conteúdo?")) return;
-  const res=await fetch(`${SUPABASE_URL}/rest/v1/conteudos?id=eq.${id}`,{method:"DELETE",headers:apiHeaders()});
-  if(res.ok) loadAdmin();
-}
-
-function escapeHtml(s=""){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));}
-loadAdmin();
+let accessToken=localStorage.getItem("cdf_access_token")||"";let currentType="tecnico";
+const loginView=document.getElementById("loginView"),adminView=document.getElementById("adminView"),loginForm=document.getElementById("loginForm"),loginStatus=document.getElementById("loginStatus"),form=document.getElementById("contentForm"),statusEl=document.getElementById("status");
+function headers(json=false){const h={apikey:SUPABASE_ANON_KEY,Authorization:`Bearer ${accessToken}`};if(json)h["Content-Type"]="application/json";return h}
+function showAdmin(){loginView.style.display="none";adminView.style.display="block";loadAdmin()}
+function showLogin(msg=""){adminView.style.display="none";loginView.style.display="block";loginStatus.textContent=msg}
+async function verify(){if(!accessToken)return showLogin();const r=await fetch(`${SUPABASE_URL}/auth/v1/user`,{headers:headers()});if(r.ok)showAdmin();else{localStorage.removeItem("cdf_access_token");accessToken="";showLogin("Sessão expirada.")}}
+loginForm.addEventListener("submit",async e=>{e.preventDefault();loginStatus.textContent="Entrando...";const email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;const r=await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`,{method:"POST",headers:{apikey:SUPABASE_ANON_KEY,"Content-Type":"application/json"},body:JSON.stringify({email,password})});const d=await r.json();if(r.ok&&d.access_token){accessToken=d.access_token;localStorage.setItem("cdf_access_token",accessToken);showAdmin()}else loginStatus.textContent="Confira e-mail e senha."});
+document.getElementById("logoutBtn").addEventListener("click",()=>{localStorage.removeItem("cdf_access_token");accessToken="";showLogin("Você saiu.")});
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentType=b.dataset.type;loadAdmin()}));
+form.addEventListener("submit",async e=>{e.preventDefault();const p={tipo:currentType,titulo:document.getElementById("titulo").value.trim(),descricao:document.getElementById("descricao").value.trim(),link:document.getElementById("link").value.trim()||null,data_evento:document.getElementById("data").value||null};statusEl.textContent="Publicando...";const r=await fetch(`${SUPABASE_URL}/rest/v1/conteudos`,{method:"POST",headers:{...headers(true),Prefer:"return=representation"},body:JSON.stringify(p)});if(r.ok){form.reset();statusEl.textContent="Publicado com sucesso.";loadAdmin()}else statusEl.textContent="Erro ao publicar."});
+async function loadAdmin(){const el=document.getElementById("admin-list");const r=await fetch(`${SUPABASE_URL}/rest/v1/conteudos?tipo=eq.${currentType}&select=*&order=created_at.desc`,{headers:headers()});if(!r.ok){el.innerHTML='<div class="card"><p>Erro ao carregar.</p></div>';return}const data=await r.json();el.innerHTML=data.map(i=>`<article class="card"><h3>${esc(i.titulo)}</h3><p>${esc(i.descricao)}</p>${i.link?`<a class="link" href="${esc(i.link)}" target="_blank">Abrir link →</a>`:""}<div><button class="danger-btn" onclick="removeItem('${i.id}')">Excluir</button></div></article>`).join("")||'<div class="card"><p>Nenhum item publicado.</p></div>'}
+async function removeItem(id){if(!confirm("Excluir este conteúdo?"))return;const r=await fetch(`${SUPABASE_URL}/rest/v1/conteudos?id=eq.${id}`,{method:"DELETE",headers:headers()});if(r.ok)loadAdmin();else alert("Não foi possível excluir.")}
+function esc(s=""){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
+verify();

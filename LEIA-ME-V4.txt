@@ -1,0 +1,5 @@
+Substitua no GitHub: admin.html, admin.js e service-worker.js.
+Mantenha o config.js atual com SUPABASE_URL e SUPABASE_ANON_KEY corretos.
+O ADMIN_PASSWORD antigo não é mais usado e pode ser removido depois.
+Painel: https://alissonbraga526-afk.github.io/chao-de-ferramentaria-app/admin.html
+Entre com o e-mail e a senha do usuário criado em Supabase Authentication.
