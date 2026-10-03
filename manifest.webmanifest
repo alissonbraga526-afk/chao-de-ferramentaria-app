@@ -1,21 +1,24 @@
 {
   "name": "Chão de Ferramentaria",
   "short_name": "Ferramentaria",
+  "id": "./",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#06111f",
   "theme_color": "#0b5da8",
-  "description": "Conteúdo técnico, entrevistas e conexões da indústria de ferramentaria.",
   "icons": [
     {
       "src": "icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
