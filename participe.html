@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participe | Chão de Ferramentaria</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <h1>Participe do Chão de Ferramentaria</h1>
+
+    <p>
+      O Chão de Ferramentaria também é construído com a participação
+      de quem vive a indústria.
+    </p>
+
+    <section class="card">
+      <h2>🎙️ Sugira um tema</h2>
+
+      <input id="tema-nome" placeholder="Seu nome">
+      <input id="tema-profissao" placeholder="Empresa ou profissão">
+      <input id="tema-titulo" placeholder="Tema sugerido">
+
+      <textarea
+        id="tema-desc"
+        placeholder="Por que esse tema seria interessante?"
+      ></textarea>
+
+      <input id="tema-contato" placeholder="WhatsApp ou e-mail">
+
+      <button onclick="enviarTema()">
+        Enviar sugestão
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>🏭 Indique uma empresa</h2>
+
+      <input id="empresa-nome" placeholder="Nome da empresa">
+      <input id="empresa-cidade" placeholder="Cidade/Estado">
+      <input id="empresa-titulo" placeholder="Segmento ou especialidade">
+      <input id="empresa-link" placeholder="Site / Instagram / LinkedIn">
+
+      <textarea
+        id="empresa-desc"
+        placeholder="Por que você indica essa empresa?"
+      ></textarea>
+
+      <input id="empresa-contato" placeholder="Contato da empresa">
+
+      <button onclick="enviarEmpresa()">
+        Indicar empresa
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>💼 Envie uma vaga</h2>
+
+      <input id="vaga-nome" placeholder="Nome da empresa">
+      <input id="vaga-titulo" placeholder="Título da vaga">
+      <input id="vaga-cidade" placeholder="Cidade/Estado">
+
+      <textarea
+        id="vaga-desc"
+        placeholder="Descrição da vaga"
+      ></textarea>
+
+      <input id="vaga-link" placeholder="Link para candidatura">
+      <input id="vaga-contato" placeholder="Contato">
+
+      <button onclick="enviarVaga()">
+        Enviar vaga
+      </button>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="participe.js"></script>
+
+</body>
+</html>
